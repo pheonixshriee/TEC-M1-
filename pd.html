@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Health Dashboard</title>
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #343a40;
+    color: #fff;
+}
+
+.dashboard-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #007bff;
+}
+
+.summary-section {
+    margin-bottom: 30px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.chart-container {
+    text-align: center;
+    margin-top: 20px;
+}
+#dashboardTitle{
+    color: white;
+    font-size: 40px;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="dashboardTitle">Patient Health Dashboard</h1>
+    </header>
+
+    <div class="dashboard-container">
+        <div class="summary-section">
+            <h2>Health Summary</h2>
+            <div class="summary-data">
+                <div class="summary-item">
+                    <h3>Pluse Rate</h3>
+                    <p id="weightValue">75 BPM</p>
+                </div>
+                <div class="summary-item">
+                    <h3>Blood Pressure</h3>
+                    <p id="bpValue">120/80 mmHg</p>
+                </div>
+                <div class="summary-item">
+                    <h3>Blood Sugar</h3>
+                    <p id="bloodSugarValue">100 mg/dL</p>
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="chart-section">
+            <h2>Health Trends</h2>
+            <div class="chart-container">
+                <canvas id="healthTrendChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Patient Health Dashboard</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    
+    const patientData = {
+        PluseRate: '70 BPM',
+        bloodPressure: '120/80 mmHg',
+        bloodSugar: '100 mg/dL',
+        healthTrends: [65, 68, 70, 72, 75, 73, 71] 
+    };
+
+   
+    document.getElementById('Pluserate').textContent = patientData.Pluserate;
+    document.getElementById('bpValue').textContent = patientData.bloodPressure;
+    document.getElementById('bloodSugarValue').textContent = patientData.bloodSugar;
+
+    const ctx = document.getElementById('healthTrendChart').getContext('2d');
+    const healthTrendChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+            datasets: [{
+                label: 'Health Trends',
+                data: patientData.healthTrends,
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+});
+
+    </script>
+</body>
+</html>
