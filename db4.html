@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Data Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg'); /* Replace 'background.jpg' with your image path */
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+        }
+
+        .dashboard-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        .summary-section {
+            margin-bottom: 30px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .summary-value {
+            display: flex;
+            align-items: center;
+        }
+
+        .detail-button {
+            padding: 8px 16px;
+            margin-left: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .detail-button:hover {
+            background-color: #0056b3;
+        }
+
+        .chart-container {
+            text-align: center;
+        }
+
+        /* Additional styling for your charts can be added here */
+
+        @media (max-width: 600px) {
+            .dashboard-container {
+                padding: 10px;
+            }
+        }
+
+
+        .patient-details {
+            margin-top: 30px;
+        }
+        .patient-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .patient-details th, .patient-details td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .patient-details th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .patient-details input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+
+
+        .editable-section {
+            margin-top: 30px;
+        }
+        .editable-section label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .editable-section input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        .editable-section button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .editable-section button:hover {
+            background-color: #0056b3;
+        }
+
+      .ggg{
+        color: black;
+        padding-left: 39%;
+      }
+
+      .button{
+        background-color: darkblue;
+        color: #ddd;
+        border-radius: 2px;
+        
+        
+      }
+
+      #btn{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-color: #0056b3;
+       color: #ddd;
+       flex-direction: row;
+       
+       margin-right: 700px;
+       border-radius: 20px;
+      }
+      #btn:hover{
+        color: darkblue;
+        background-color: gray;
+      }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Health Data Dashboard</h1>
+</header>
+
+<div class="dashboard-container">
+    <div class="summary-section">
+        <h2>Summary</h2>
+        <div class="summary-data">
+            <div class="summary-item">
+                <h3>Patients</h3>
+                <div class="summary-value">
+                    <p>1000</p>
+                    <button class="detail-button">Details</button>
+                </div>
+            </div>
+            <div class="summary-item">
+                <h3>Visits</h3>
+                <div class="summary-value">
+                    <p>5000</p>
+                    <button class="detail-button">Details</button>
+                </div>
+            </div>
+            <!-- Add more summary items as needed -->
+        </div>
+    </div>
+
+
+    <div class="patient-details">
+        <h2>Patient Details</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Condition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" value="John Doe"></td>
+                    <td><input type="number" value="35"></td>
+                    <td>
+                        <select>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </td>
+                    <td><input type="text" value="Healthy"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" value="Jane Smith"></td>
+                    <td><input type="number" value="42"></td>
+                    <td>
+                        <select>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </td>
+                    <td><input type="text" value="In Treatment"></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+    <div class="chart-section">
+        <h2>Health Overview</h2>
+        <div class="chart-container">
+            <canvas id="healthChart" width="400" height="400"></canvas>
+        </div>
+    </div>
+</div>
+ <div class="ggg">
+
+<label for="username">Username:</label>
+
+<input type="text"  placeholder="Enter Patient's Username"><br><br><br>
+<input type="button" value="Send OTP" id="btn">
+<br>
+<label for="OPT">OTP:    </label>
+<input type="tel" placeholder="Enter OPT"><p><br></p>
+<a href="images.html" class="button" id="btn" >    <h2>     </h2>          View Details         <h2>   </h2></a>
+
+
+ </div>
+
+<div class="dashboard-container">
+    <div class="summary-section">
+        
+        <h2>Health Details</h2>
+        <div class="editable-section">
+            <label for="bloodPressureInput">Blood Pressure:</label>
+            <input type="text" id="bloodPressureInput" value="120/80 mmHg">
+            <label for="pulseRateInput">Pulse Rate:</label>
+            <input type="text" id="pulseRateInput" value="70 BPM">
+            <label for="bodyTemperatureInput">Body Temperature:</label>
+            <input type="text" id="bodyTemperatureInput" value="98.6 °F">
+            <label for="bloodSugarInput">Blood Sugar:</label>
+            <input type="text" id="bloodSugarInput" value="100 mg/dL">
+           <a class="button" href="images2.html"></a>
+        </div>
+    </div>
+
+
+
+
+
+<footer>
+    <p>&copy; 2024 Health Data Dashboard</p>
+</footer>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Sample data for pie chart
+        var ctx = document.getElementById('healthChart').getContext('2d');
+        var healthChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Healthy', 'In Treatment', 'Critical'],
+                datasets: [{
+                    label: 'Health Overview',
+                    data: [40, 30, 30], // Sample data percentages
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(255, 99, 132, 0.8)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    });
+
+
+   
+    document.addEventListener('DOMContentLoaded', function() {
+    // Sample data for pie chart
+    var ctx = document.getElementById('healthChart').getContext('2d');
+    var healthChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Healthy', 'In Treatment', 'Critical'],
+            datasets: [{
+                label: 'Health Overview',
+                data: [50, 30, 20], // Adjusted to sum up to 100%
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.8)',
+                    'rgba(255, 206, 86, 0.8)',
+                    'rgba(255, 99, 132, 0.8)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+});
+
+
+
+
+</script>
+
+</body>
+</html>

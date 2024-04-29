@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image-gallery {
+    margin-bottom: 20px;
+}
+
+.image-details {
+    text-align: center;
+}
+
+.thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.thumbnail img {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.thumbnail img:hover {
+    border-color: #007bff;
+}
+
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gallery-container">
+        
+        <div class="image-details">
+            <p><strong>Date:</strong> <span id="image-date"></span></p>
+            <p><strong>Details:</strong> <span id="image-details"></span></p>
+        </div>
+    </div>
+
+    <div class="thumbnails">
+        <div class="thumbnail" data-index="0">
+            <img src="images/image1.jpg" alt="Thumbnail 1" height="200px" width="200px">
+        </div>
+        <div class="thumbnail" data-index="1">
+            <img src="images/image2.jpg" alt="Thumbnail 2" height="200px" width="200px>
+        </div>
+        <div class="thumbnail" data-index="2" >
+            <img src="images/image3.jpg" alt="Thumbnail 3" height="200px" width="200px">
+        </div>
+        
+    </div>
+
+<script>
+$(document).ready(function() {
+    // Image data (filename, date, details)
+    var imageData = [
+        { filename: 'image1.jpg', date: '2024-04-01', details: 'This is the first image' },
+        { filename: 'image2.jpg', date: '2024-04-02', details: 'This is the second image' },
+        { filename: 'image3.jpg', date: '2024-04-03', details: 'This is the third image' }
+        // Add more image data as needed
+    ];
+
+    // Function to display selected image
+    function displayImage(index) {
+        var selectedImage = imageData[index];
+        $('#main-image').attr('src', 'images/' + selectedImage.filename);
+        $('#image-date').text(selectedImage.date);
+        $('#image-details').text(selectedImage.details);
+    }
+
+    // Initial display of the first image
+    displayImage(0);
+
+    // Handle thumbnail click events
+    $('.thumbnail').click(function() {
+        var selectedIndex = $(this).data('index');
+        displayImage(selectedIndex);
+    });
+});
+
+
+</script>
+</body>
+</html>
